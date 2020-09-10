@@ -82,6 +82,8 @@ module.exports = (answers, config) => {
 
   const breaking = wrap(answers.breaking, wrapOptions);
   const footer = wrap(answers.footer, wrapOptions);
+  const dependency = wrap(answers.dependency, wrapOptions);
+
 
   let result = head;
   if (body) {
@@ -93,6 +95,9 @@ module.exports = (answers, config) => {
   }
   if (footer) {
     result += addFooter(footer, config);
+  }
+  if (dependency) {
+    result += `\n\nDEPENDENCY-${dependency}`;
   }
 
   return escapeSpecialChars(result);

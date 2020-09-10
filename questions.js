@@ -64,6 +64,7 @@ module.exports = {
       messages.body || 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n';
     messages.breaking = messages.breaking || 'List any BREAKING CHANGES (optional):\n';
     messages.footer = messages.footer || 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n';
+    messages.dependency = messages.dependency || 'List any dependencies by this change (optional).';
     messages.confirmCommit = messages.confirmCommit || 'Are you sure you want to proceed with the commit above?';
 
     let questions = [
@@ -172,6 +173,11 @@ module.exports = {
         name: 'footer',
         message: messages.footer,
         when: isNotWip,
+      },
+      {
+        type: 'input',
+        name: 'dependency',
+        message: messages.dependency
       },
       {
         type: 'expand',
